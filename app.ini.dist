@@ -1,0 +1,2 @@
+; Domain that is used to construct the email address for a user.
+EMAIL_DOMAIN = eveonline.com
