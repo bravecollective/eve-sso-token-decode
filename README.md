@@ -8,6 +8,12 @@ Available providers:
 
 - [Gitea](https://gitea.com)
 
+## Notes
+
+The generated username is based on the EVE character name. Invalid characters are replaced with an 
+underscore. It is not guaranteed that it will be unique should EVE allow more characters than it does
+now (July 2024) or if an EVE character was deleted and recreated with the same name.
+
 ## Install
 
 Requires an HTTP Server with PHP >= 8.1 support.

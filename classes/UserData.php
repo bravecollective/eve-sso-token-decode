@@ -47,7 +47,11 @@ final class UserData
             throw new Exception('Invalid ID');
         }
 
-        $login = strtolower(preg_replace('/[^a-zA-Z0-9]/', '_', $payload->name));
+        // see also https://support.eveonline.com/hc/en-us/articles/8563435867804-EVE-Online-Naming-Policy
+        $login = trim(strtolower(preg_replace('/[^a-zA-Z0-9-.]/', '_', $payload->name)), '_-.');
+        if ($login === '') {
+            $login = uniqid('u_');
+        }
 
         $this->id = $charId;
         $this->fullName = (string)$payload->name;

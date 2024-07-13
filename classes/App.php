@@ -35,10 +35,16 @@ final class App
                 str_replace(
                     ['-', '_'],
                     ['+', '/'],
-                    explode('.', $token)[1]
+                    explode('.', $token)[1] ?? ''
                 )
             )
         );
+        if (!$payload instanceof stdClass) {
+            error_log('Invalid payload.');
+            self::output(null);
+            return;
+        }
+
         try {
             $tokenData = new UserData($payload);
         } catch (Exception $e) {
